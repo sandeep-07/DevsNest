@@ -1,0 +1,52 @@
+/* TASK-1 DONE*/
+/* #saffron{
+    border: 2px solid black;
+    height:70px;
+    width:500px;
+    background-color: orangered;
+}
+
+#white{
+    border: 2px solid black;
+    height:70px;
+    width:500px;
+    background-color: white;
+}
+
+#green{
+    border: 2px solid black;
+    height:70px;
+    width:500px;
+    background-color: green;
+} */
+
+/* TASK-2 DONE */
+/* div:nth-child(1){
+    border: 2px solid black;
+    height:70px;
+    width:500px;
+    background-color: orangered;
+    
+}
+div:nth-child(2){
+    border: 2px solid black;
+    height:70px;
+    width:500px;
+    background-color: white;
+    
+}
+div:nth-child(3){
+    border: 2px solid black;
+    height:70px;
+    width:500px;
+    background-color: rgb(32, 145, 32);
+    
+} */
+
+/* TASK-3 */
+#flag{
+    width:500px;
+    height:210px;     	
+    background: linear-gradient(to bottom, orangered, orangered 33.33%, white 33.33%, white 66.66%, green 66.66%);
+
+}
