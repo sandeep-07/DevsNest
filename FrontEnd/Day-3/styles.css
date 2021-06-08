@@ -8,6 +8,7 @@
     /* min-height: 6px; */
 }
 .name{
+    position: relative;
     font-size: 30px;
     background-color: red;
     width: fit-content;

@@ -1,0 +1,80 @@
+body{
+    background:radial-gradient(rgba(255,200,0,1),black);
+    text-align: center;
+}
+.clock{
+
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(white,black);
+    display: inline-block;
+    border-radius: 50%;
+    border: 50px solid black;
+    padding: 20px;
+    
+}
+
+.sec{
+
+    height:250px;
+    width:10px;
+    border-radius: 10px;
+    background: radial-gradient(
+        black,red);
+    line-height: 45px;
+    color :seagreen;
+    position: relative;
+    left: 252px;
+    top: 5px;
+    z-index: 3;
+    transform-origin: bottom;
+    animation: sec_anim 10s linear infinite;
+}
+.hour{
+    height:180px;
+    width:10px; 
+    border-radius: 10px;
+    background: radial-gradient(
+        black,yellow);
+    line-height: 45px;
+    color :white;
+    position: relative;
+    left: 254px;
+    top: -377px;
+    z-index: 1;
+    transform-origin: bottom;
+    animation: hr_anim 43200s linear infinite;
+}
+.min{
+    height:200px;
+    width:15px;
+    border-radius: 10px;
+    background: radial-gradient(
+        black,blue);
+    line-height: 45px;
+    color :white;
+    position: relative;
+
+    left: 245.5px;
+    top: -198px;
+
+    z-index: 2;   
+    animation: min_anim 600s linear infinite;
+    transform-origin: bottom;
+}
+
+@keyframes sec_anim {
+    from{transform:rotateZ(0deg);}
+    to{transform:rotateZ(360deg);}
+    
+}
+@keyframes hr_anim {
+    from{transform:rotateZ(0deg);}
+    to{transform:rotateZ(360deg);}
+    
+}
+@keyframes min_anim {
+    from{transform:rotateZ(0deg);}
+    to{transform:rotateZ(360deg);}
+    
+}
