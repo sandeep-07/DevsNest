@@ -1,17 +1,18 @@
 body{
-    background:radial-gradient(rgba(255,200,0,1),black);
+    background:#000000;
     text-align: center;
 }
-.clock{
 
+.clock{
+    background-size: cover;
     width: 500px;
     height: 500px;
-    background: radial-gradient(white,black);
+    background: radial-gradient(rgb(39, 39, 39),rgb(5, 0, 0));
+    box-shadow:0 0px 10px 10px rgb(255 255 255 / 20%),0 0px 10px 10px rgb(255 255 255 / 20%);
     display: inline-block;
     border-radius: 50%;
-    border: 50px solid black;
+    border: 10px solid black;
     padding: 20px;
-    
 }
 
 .sec{
@@ -19,8 +20,7 @@ body{
     height:250px;
     width:10px;
     border-radius: 10px;
-    background: radial-gradient(
-        black,red);
+    background: #E21717;
     line-height: 45px;
     color :seagreen;
     position: relative;
@@ -28,7 +28,7 @@ body{
     top: 5px;
     z-index: 3;
     transform-origin: bottom;
-    animation: sec_anim 10s linear infinite;
+    animation: sec_anim 60s linear infinite;
 }
 .hour{
     height:180px;
