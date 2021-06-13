@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Js Learning</title>
+</head>
+<body>
+    <div class="calc">
+        <input id="box" value="" type="text" readonly placeholder="0"><br/>
+        <div class="result" >23</div>
+        <div class="signs">
+            <div class="item clear_all" onclick="clearall()">CE</div>
+            <div class="item clear" onclick="delone()"> ⟸ </div>
+
+            <div class="item percent" onclick="shownum('%')">%</div>
+            <div class="item some_signs divide" onclick="shownum('/')">/</div>
+            <div class="item seven" onclick="shownum('7')">7</div>
+            <div class="item eight" onclick="shownum('8')">8</div>
+            <div class="item nine" onclick="shownum('9')">9</div>
+            <div class="item some_signs  multiply" onclick="shownum('*')">X</div>
+            <div class="item four" onclick="shownum('4')">4</div>
+            <div class="item five" onclick="shownum('5')">5</div>
+            <div class="item six" onclick="shownum('6')">6</div>
+            <div class="item some_signs  minus" onclick="shownum('-')">-</div>
+            <div class="item one" onclick="shownum('1')">1</div>
+            <div class="item two" onclick="shownum('2')">2</div>
+            <div class="item three" onclick="shownum('3')">3</div>
+            <div class="item some_signs add" onclick="shownum('+')">+</div>       
+            <div class="item zero" onclick="shownum('0')">0</div>
+            <div class="item decimal" onclick="shownum('.')" >.</div>
+            <div class="item equal" style="background:#45c97e;" onclick="solve()">=</div>
+        </div>        
+    </div>
+    
+    
+    
+</body>
+<script src="./script.js"></script>
+</html>
