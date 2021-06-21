@@ -9,7 +9,7 @@ document.addEventListener('mousemove',(e)=>{
 })
 document.addEventListener('click',(e)=>{
     document.querySelector('.home').style.opacity="0"
-    // playbutton.style.opacity=0
+
     setTimeout(()=>{
         document.querySelector('.home').style.display="none"
     },1000)
