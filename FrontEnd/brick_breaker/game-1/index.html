@@ -1,76 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>2D Breakout Game - JavScript</title>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Germania+One">
-    
+
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap%27');
         *{
             font-family: "Germania One";
         }
-        body{
-            background-color: rgb(14,14,14) !important;
-            
+
+        body {
+            background-color: rgb(14, 14, 14) !important;
+            background-image: url('./img/bg-5.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
             display: flex;
             justify-content: center;
+
         }
-        #breakout{
-            box-shadow: 2px 2px 2px 2px black;
+
+        #breakout {
+             /* box-shadow: 2px 2px 2px 2px black; */
+            height: 100vh;
         }
-        #sound{
-            width: 30px;
-            height : 30px;
+
+        #sound {
+            width: 5%;
+            height: 8%;
             cursor: pointer;
             position: absolute;
-            top : 465px;
-            left : 15px;
+            top: 90%;
+            left: 2%;
         }
-        #gameover{
+
+        #gameover {
             position: absolute;
-            width : 900px;
+            width: 100%;
             height: 800px;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             display: none;
         }
-        #youwon{
+
+        #youwon {
             width: 100px;
             position: absolute;
-            top : 200px;
-            left : 150px;
+            top: 200px;
+            left: 150px;
             display: none;
         }
-        #youlose{
-            width:400px;
+
+        #youlose {
+            width: 400px;
             position: absolute;
             top: 100px;
-            left : 0px;
+            left: 0px;
             display: none;
         }
-        #restart{
-            position: absolute;
-            top: 310px;
-            left : 155px;
+
+        #restart {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 5em;
             cursor: pointer;
-            font-size: 1.25em;
-            color : #FFF;
+            top: 45%;
+            color: #FFF;
+            font-family: 'Press Start 2P', cursive;
+        }
+        .front{
+            background-color: aqua;
+            position: absolute;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
+
 <body>
     <div class="sound">
         <img src="img/SOUND_ON.png" alt="" id="sound">
     </div>
-    
+
     <div id="gameover">
         <img src="img/youwon.png" alt="" id="youwon">
         <img src="img/gameover.png" alt="" id="youlose">
         <div id="restart">Play Again!</div>
     </div>
-   
+
+    <div class="front" >
+        <button onclick="hide();" id="hbt"> Play Game </button>
+    </div>
+
     <canvas id="breakout" width="1200" height="600"></canvas>
-    
+
     <script src="components.js"></script>
     <script src="game.js"></script>
 </body>
+
 </html>
