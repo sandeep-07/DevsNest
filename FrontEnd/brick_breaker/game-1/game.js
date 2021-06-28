@@ -25,7 +25,7 @@ function hide() {
     const PADDLE_HEIGHT = 20;
     let bl = [50, 50, 40, 30]
     let BALL_RADIUS = bl[LEVEL]
-    let LIFE = 1; // PLAYER HAS 3 LIVES
+    let LIFE = 10;
     let SCORE = 0;
     const SCORE_UNIT = 10;
     const MAX_LEVEL = 3;
@@ -168,13 +168,13 @@ function hide() {
 
     // MOVE THE BALL
     function moveBall() {
-        console.log(ball.dx, ball.dy);
         ball.x += ball.dx;
         ball.y += ball.dy;
     }
 
     // BALL AND WALL COLLISION DETECTION
     function ballWallCollision() {
+        console.log('called');
         if (ball.x + ball.radius > cvs.width || ball.x - ball.radius < 0) {
             ball.dx = -ball.dx;
             WALL_HIT.play();
@@ -406,7 +406,8 @@ function hide() {
 
             ballBrickCollision();
         }
-
+        
+        gameOver();
         levelUp();
     }
 
