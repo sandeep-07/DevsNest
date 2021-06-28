@@ -2,7 +2,7 @@
 
 // LOAD BG IMAGE
 const BG_IMG = new Image();
-BG_IMG.src = "./img/bg_3.png";
+BG_IMG.src = "./img/bg-5.png";
 // BG_IMG.style.width="700"
 // BG_IMG.width = "1200";
 

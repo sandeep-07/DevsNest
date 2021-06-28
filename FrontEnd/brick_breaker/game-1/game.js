@@ -3,7 +3,7 @@ const cvs = document.getElementById("breakout");
 const ctx = cvs.getContext("2d");
 
 // ADD BORDER TO CANVAS
-cvs.style.border = "1px solid #0ff";
+// cvs.style.border = "1px solid #0ff";
 
 // MAKE LINE THIK WHEN DRAWING TO CANVAS
 ctx.lineWidth = 3;
@@ -23,7 +23,7 @@ const MAX_LEVEL = 3;
 let GAME_OVER = false;
 let leftArrow = false;
 let rightArrow = false;
-
+let defaultColor = "#E21717"
 
 // CREATE THE PADDLE
 var paddle = {
@@ -54,12 +54,14 @@ for (let i = 0; i < 6; i++)
 
 // DRAW PADDLE
 function drawPaddle() {
-        let cl = randcolor()
-    ctx.fillStyle = cl;
+
+    random = Math.floor(Math.random() * randbrickcolor.length);
+    
+    ctx.fillStyle = randbrickcolor[LEVEL];
     // console.log(padd)
     ctx.fillRect(paddle.x, paddle.y, pw[LEVEL], paddle.height);
 
-    ctx.strokeStyle = cl;
+    ctx.strokeStyle = randbrickcolor[LEVEL];
     ctx.strokeRect(paddle.x, paddle.y, pw[LEVEL], paddle.height);
 }
 
@@ -101,15 +103,15 @@ let ball = {
 // DRAW THE BALL
 function drawBall() {
     ctx.beginPath();
-    console.log(ball.radius)
+    // console.log(ball.radius)
 
     ctx.arc(ball.x, ball.y, bl[LEVEL], 0, Math.PI * 2);
       
-    ctx.fillStyle =" #E21717";
+    ctx.fillStyle =defaultColor
     ctx.fill();
 
-    ctx.strokeStyle = "#242B2E";
-    ctx.stroke();
+    // ctx.strokeStyle = "#242B2E";
+    // ctx.stroke();
 
     ctx.closePath();
 }
@@ -196,8 +198,11 @@ function createBricks() {
             bricks[r][c] = {
                 x: c * (brick.offSetLeft + brick.width) + brick.offSetLeft,
                 y: r * (brick.offSetTop + brick.height) + brick.offSetTop + brick.marginTop,
-                status: true
+                status: true,
+                bcolor: randbrickcolor[r]
+                
             }
+            // console.log(bricks[r][c].bcolor)
         }
     }
 }
@@ -213,7 +218,8 @@ function drawBricks() {
             let b = bricks[r][c];
             // if the brick isn't broken
             if (b.status) {
-                ctx.fillStyle =randbrickcolor[r];
+                // console.log(b.color)
+                ctx.fillStyle =b.bcolor;
                 ctx.fillRect(b.x, b.y, brick.width, brick.height);
 
                 ctx.strokeStyle = brick.strokeColor;
@@ -228,10 +234,18 @@ function ballBrickCollision() {
     for (let r = 0; r < brick.row; r++) {
         for (let c = 0; c < brick.column; c++) {
             let b = bricks[r][c];
+            // if(b.bcolor)
+            // console.log(b.bcolor)
             // if the brick isn't broken
             if (b.status) {
                 if (ball.x + ball.radius > b.x && ball.x - ball.radius < b.x + brick.width && ball.y + ball.radius > b.y && ball.y - ball.radius < b.y + brick.height) {
                     BRICK_HIT.play();
+                    // ctx.fillColor = bricks[r][c].bcolor
+                    ctx.arc(ball.x, ball.y, bl[LEVEL], 0, Math.PI * 2);
+                    defaultColor = bricks[r][c].bcolor;
+                    ctx.fill();
+                    // console.log(ball.color)
+                    // console.log(bricks[r][c])
                     ball.dy = -ball.dy;
                     b.status = false; // the brick is broken
                     SCORE += SCORE_UNIT;
