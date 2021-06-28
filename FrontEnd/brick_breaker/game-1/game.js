@@ -385,9 +385,13 @@ function hide() {
                 color += letters[(Math.floor(Math.random() * 16))];
             createBricks();
             ball.speed += 0.5;
-
-            resetBall();
+            
             LEVEL++;
+            for(let i = 0; i < LEVEL; ++i)
+            {
+                ball = ballArr[i];
+                resetBall();
+            }
             console.log(bl[LEVEL])
         }
     }
