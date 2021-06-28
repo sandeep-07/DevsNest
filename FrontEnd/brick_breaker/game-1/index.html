@@ -10,7 +10,8 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap%27');
         @import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
-        *{
+
+        * {
             font-family: "Germania One";
         }
 
@@ -26,7 +27,7 @@
         }
 
         #breakout {
-             /* box-shadow: 2px 2px 2px 2px black; */
+            /* box-shadow: 2px 2px 2px 2px black; */
             height: 100vh;
         }
 
@@ -74,124 +75,129 @@
             color: #FFF;
             font-family: 'Press Start 2P', cursive;
         }
-        .front{
-         
+
+        .front {
+
             position: fixed;
-    height: 100vh;
-    width: 100vw;
-    background-color: black;
-    z-index: 2;
-    cursor: default;
-    transition: all 0.1s ease;
-    color:aqua;
-    
+            height: 100vh;
+            width: 100vw;
+            background-color: black;
+            z-index: 2;
+            cursor: default;
+            transition: all 0.1s ease;
+            color: aqua;
+
         }
-        #hbt
-        {
+
+        #hbt {
             border: 1px solid aqua;
             background-color: rgb(0, 0, 0);
             color: aqua;
             font-size: 2em;
             font-family: 'Press Start 2P', cursive;
-            padding:1em;
+            padding: 1em;
             transition: all 0.5s ease;
             position: relative;
             cursor: pointer;
             /* top: 5%;
             left: 40%; */
         }
-        #hbt:hover{
-            padding:1.5em;
+
+        #hbt:hover {
+            padding: 1.5em;
         }
-        .instruction
-        {
-            color:aqua;
+
+        .instruction {
+            color: aqua;
             font-family: 'Sigmar One', cursive;
             font-size: 5em;
             display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top:3em;
+            justify-content: center;
+            align-items: center;
+            padding-top: 3em;
         }
-        .kp{
+
+        .kp {
             display: flex;
-    justify-content: center;
-    align-items: center;
+            justify-content: center;
+            align-items: center;
         }
-        .team{
+
+        .team {
             position: absolute;
-            top:80%;
-            left:75%;
+            top: 80%;
+            left: 75%;
             color: aqua;
             font-size: 2em;
         }
-        .brick-box
-        {
+
+        .brick-box {
             height: 85px;
             width: 110px;
             border: 1px solid aqua;
             background-color: aqua;
 
         }
-        .space{
-            margin:1em;
+
+        .space {
+            margin: 1em;
         }
     </style>
 </head>
 
 <body>
     <div id="particles">
-    <div class="sound">
-        <img src="img/SOUND_ON.png" alt="" id="sound">
-    </div>
-
-    <div id="gameover">
-        <img src="img/youwon.png" alt="" id="youwon">
-        <img src="img/gameover.png" alt="" id="youlose">
-        <div id="restart">Play Again!</div>
-    </div>
-
-    <div class="front" >
-      
-        <div class="instruction">
-            <div class="brick-box">
-           
-            </div>
-            
-            BRICK BREAKER  
-            <div class="brick-box">
-           
-            </div> 
+        <div class="sound">
+            <img src="img/SOUND_ON.png" alt="" id="sound">
         </div>
-        <div class="kp">
-            <div class="brick-box">
-           
-            </div>
-            <div class="space"></div>
-            
-            <div class="brick-box">
-           
-            </div>
-            <div class="space"></div>
-            <div class="space"></div>
-            <button onclick="hide();" id="hbt"> Play Game </button> 
-            <div class="space"></div>
-            <div class="brick-box">
-           
-            </div>
-            <div class="space"></div>
-            <div class="space"></div>
-            <div class="brick-box">
-           
-            </div>
-        </div>
-        <div class="team">
-            <h3><i>#The-Skyliners-team</i></h3>
-        </div>
-        
-    </div>
 
-    <canvas id="breakout" width="1200" height="600"></canvas>
+        <div id="gameover">
+            <img src="img/youwon.png" alt="" id="youwon">
+            <img src="img/gameover.png" alt="" id="youlose">
+            <div id="restart">Play Again!</div>
+        </div>
+
+        <div class="front">
+
+            <div class="instruction">
+                <div class="brick-box">
+
+                </div>
+
+                BRICK BREAKER
+                <div class="brick-box">
+
+                </div>
+            </div>
+            <div class="kp">
+                <div class="brick-box">
+
+                </div>
+                <div class="space"></div>
+
+                <div class="brick-box">
+
+                </div>
+                <div class="space"></div>
+                <div class="space"></div>
+                <button onclick="hide();" id="hbt"> Play Game </button>
+                <div class="space"></div>
+                <div class="brick-box">
+
+                </div>
+                <div class="space"></div>
+                <div class="space"></div>
+                <div class="brick-box">
+
+                </div>
+            </div>
+            <div class="team">
+                <h3><i>#The-Skyliners-team</i></h3>
+            </div>
+
+        </div>
+
+        <canvas id="breakout" width="1200" height="600"></canvas>
     </div>
     <script src="components.js"></script>
     <script src="game.js"></script>
