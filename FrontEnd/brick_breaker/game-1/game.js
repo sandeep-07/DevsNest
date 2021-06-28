@@ -300,7 +300,7 @@ function hide() {
                         b.status = false; // the brick is broken
                         SCORE += SCORE_UNIT;
                         scoreup(SCORE)
-                        shakeScreen(5);
+                        shakeScreen(15);
                     }
                 }
             }
