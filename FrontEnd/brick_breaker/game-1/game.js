@@ -27,7 +27,7 @@ function hide() {
     let LIFE = 1; // PLAYER HAS 3 LIVES
     let SCORE = 0;
     const SCORE_UNIT = 10;
-    const MAX_LEVEL = 1;
+    const MAX_LEVEL = 3;
     let GAME_OVER = false;
     let leftArrow = false;
     let rightArrow = false;
@@ -98,6 +98,7 @@ function hide() {
 
     // DRAW THE BALL
     function drawBall() {
+
         ctx.beginPath();
         // console.log(ball.radius)
 
@@ -245,6 +246,7 @@ function hide() {
                         ball.dy = -ball.dy;
                         b.status = false; // the brick is broken
                         SCORE += SCORE_UNIT;
+                        scoreup(SCORE)
                     }
                 }
             }
@@ -431,6 +433,22 @@ function hide() {
             close: true,
             gravity: "top", // `top` or `bottom`
             position: "left", // `left`, `center` or `right`
+            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            onClick: function () {
+                
+            } // Callback after click
+        }).showToast();
+    }
+    function scoreup(a) {
+        Toastify({
+            text: `+10`,
+            duration: 1000,
+            // destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
             backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
             stopOnFocus: true, // Prevents dismissing of toast on hover
             onClick: function () {
