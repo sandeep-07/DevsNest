@@ -145,6 +145,8 @@ function hide() {
         dy: -3
     }
 
+    let ball;
+
     let ballArr = [ball1, ball2, ball3, ball4, ball5];
 
     // DRAW THE BALL
