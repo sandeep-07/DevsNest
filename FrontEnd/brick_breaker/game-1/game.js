@@ -24,10 +24,10 @@ function hide() {
     const PADDLE_HEIGHT = 20;
     let bl = [50, 50, 40, 30]
     let BALL_RADIUS = bl[LEVEL]
-    let LIFE = 3; // PLAYER HAS 3 LIVES
+    let LIFE = 1; // PLAYER HAS 3 LIVES
     let SCORE = 0;
     const SCORE_UNIT = 10;
-    const MAX_LEVEL = 3;
+    const MAX_LEVEL = 1;
     let GAME_OVER = false;
     let leftArrow = false;
     let rightArrow = false;
@@ -401,11 +401,41 @@ function hide() {
     function showYouWin() {
         gameover.style.display = "block";
         youwon.style.display = "block";
+
+        notify("Congratulations You Won")
+        setTimeout(() => {
+            console.log("show winner")
+
+            location.reload()
+        }, 3000)
     }
 
     // SHOW YOU LOSE
     function showYouLose() {
-        gameover.style.display = "block";
-        youlose.style.display = "block";
+        // gameover.style.display = "block";
+        // youlose.style.display = "block";
+        notify("Game Over .Restarting the game")
+        setTimeout(() => {
+            
+            location.reload()
+        },3000)
+        // console.log("after game over ran")
+        
+    }
+    function notify(a) {
+        Toastify({
+            text: a,
+            duration: 3000,
+            // destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "left", // `left`, `center` or `right`
+            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            onClick: function () {
+                
+            } // Callback after click
+        }).showToast();
     }
 }
