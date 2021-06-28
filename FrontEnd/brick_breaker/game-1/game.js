@@ -203,11 +203,10 @@ function hide() {
 
     // BALL AND PADDLE COLLISION
     function ballPaddleCollision() {
-        if (ball.x < paddle.x + pw[LEVEL] &&
-            ball.x > paddle.x &&
-            // paddle.y< paddle.y + paddle.height &&
-
-            ball.y + ball.radius == paddle.y) {
+        console.log(ball.x, ball.y);
+        if (ball.x <= paddle.x + pw[LEVEL] &&
+            ball.x >= paddle.x &&
+            ball.y + ball.radius >= paddle.y) {
 
             // PLAY SOUND
             PADDLE_HIT.play();
@@ -385,10 +384,9 @@ function hide() {
                 color += letters[(Math.floor(Math.random() * 16))];
             createBricks();
             ball.speed += 0.5;
-            
+
             LEVEL++;
-            for(let i = 0; i < LEVEL; ++i)
-            {
+            for (let i = 0; i < LEVEL; ++i) {
                 ball = ballArr[i];
                 resetBall();
             }
@@ -410,7 +408,7 @@ function hide() {
 
             ballBrickCollision();
         }
-        
+
         gameOver();
         levelUp();
     }
