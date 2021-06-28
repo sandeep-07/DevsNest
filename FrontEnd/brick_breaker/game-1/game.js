@@ -1,6 +1,7 @@
 // SELECT CANVAS ELEMENT
 
 let hbt = document.getElementById("hbt")
+
 function hide() {
     var front = document.querySelector('.front')
     console.log("I ran")
@@ -37,22 +38,23 @@ function hide() {
     var paddle = {
         x: cvs.width / 2 - PADDLE_WIDTH / 2,
         y: cvs.height - PADDLE_MARGIN_BOTTOM - PADDLE_HEIGHT,
-        width: pw[LEVEL],
+        width: pw[LEVEL] - 100,
         height: PADDLE_HEIGHT,
-        dx: 8
+        dx: LEVEL * 20
     }
 
 
     let randbrickcolor = ["#0048BA", "#E52B50", "#9F2B68", "#D3212D", "#FF7E00", "#841B2D", "#F19CBB", "#3B7A57", "#841B2D", "#A52A2A", "#2E5894", "#9C2542", "#3D2B1F", "#FE6F5E", "#BF4F51", "#0093AF",
-        "#0018A8", "#064E40", "#4D1A7F", "#006A4E", "#CB4154"]
-    
+        "#0018A8", "#064E40", "#4D1A7F", "#006A4E", "#CB4154"
+    ]
+
 
 
     // DRAW PADDLE
     function drawPaddle() {
 
         random = Math.floor(Math.random() * randbrickcolor.length);
-    
+
         ctx.fillStyle = randbrickcolor[LEVEL];
         // console.log(padd)
         ctx.fillRect(paddle.x, paddle.y, pw[LEVEL], paddle.height);
@@ -87,7 +89,8 @@ function hide() {
     }
 
     // CREATE THE BALL
-    let ball = {
+
+    let ballObject = {
         x: cvs.width / 2,
         y: paddle.y - BALL_RADIUS,
         radius: BALL_RADIUS,
@@ -96,6 +99,54 @@ function hide() {
         dy: -3
     }
 
+
+    let ball1 = {
+        x: cvs.width / 2 - 1,
+        y: paddle.y - BALL_RADIUS,
+        radius: BALL_RADIUS,
+        speed: 7,
+        dx: 3 * (Math.random() * 2 - 1),
+        dy: -3
+
+    }
+    let ball2 = {
+        x: cvs.width / 2,
+        y: paddle.y - BALL_RADIUS,
+        radius: BALL_RADIUS,
+        speed: 7,
+        dx: 3 * (Math.random() * 2 - 1),
+        dy: -3
+    }
+
+    let ball3 = {
+        x: cvs.width / 2,
+        y: paddle.y - BALL_RADIUS,
+        radius: BALL_RADIUS,
+        speed: 7,
+        dx: 3 * (Math.random() * 2 - 1),
+        dy: -3
+    }
+
+    let ball4 = {
+        x: cvs.width / 2,
+        y: paddle.y - BALL_RADIUS,
+        radius: BALL_RADIUS,
+        speed: 7,
+        dx: 3 * (Math.random() * 2 - 1),
+        dy: -3
+    }
+
+    let ball5 = {
+        x: cvs.width / 2,
+        y: paddle.y - BALL_RADIUS,
+        radius: BALL_RADIUS,
+        speed: 7,
+        dx: 3 * (Math.random() * 2 - 1),
+        dy: -3
+    }
+
+    let ballArr = [ball1, ball2, ball3, ball4, ball5];
+
     // DRAW THE BALL
     function drawBall() {
 
@@ -103,7 +154,7 @@ function hide() {
         // console.log(ball.radius)
 
         ctx.arc(ball.x, ball.y, bl[LEVEL], 0, Math.PI * 2);
-      
+
         ctx.fillStyle = defaultColor
         ctx.fill();
 
@@ -115,6 +166,7 @@ function hide() {
 
     // MOVE THE BALL
     function moveBall() {
+        console.log(ball.dx, ball.dy);
         ball.x += ball.dx;
         ball.y += ball.dy;
     }
@@ -152,7 +204,7 @@ function hide() {
         if (ball.x < paddle.x + pw[LEVEL] &&
             ball.x > paddle.x &&
             // paddle.y< paddle.y + paddle.height &&
-        
+
             ball.y + ball.radius == paddle.y) {
 
             // PLAY SOUND
@@ -197,7 +249,7 @@ function hide() {
                     y: r * (brick.offSetTop + brick.height) + brick.offSetTop + brick.marginTop,
                     status: true,
                     bcolor: randbrickcolor[r]
-                
+
                 }
                 // console.log(bricks[r][c].bcolor)
             }
@@ -210,7 +262,7 @@ function hide() {
     function drawBricks() {
         for (let r = 0; r < brick.row; r++) {
 
-    
+
             for (let c = 0; c < brick.column; c++) {
                 let b = bricks[r][c];
                 // if the brick isn't broken
@@ -247,6 +299,7 @@ function hide() {
                         b.status = false; // the brick is broken
                         SCORE += SCORE_UNIT;
                         scoreup(SCORE)
+                        shakeScreen(5);
                     }
                 }
             }
@@ -268,8 +321,10 @@ function hide() {
     function draw() {
         drawPaddle();
 
-        drawBall();
-        // drawBall();
+        for (let i = 0; i < LEVEL; ++i) {
+            ball = ballArr[i];
+            drawBall();
+        }
 
         drawBricks();
 
@@ -279,6 +334,7 @@ function hide() {
         showGameStats(LIFE, cvs.width - 25, 25, LIFE_IMG, cvs.width - 55, 5);
         // SHOW LEVEL
         showGameStats(LEVEL, cvs.width / 2, 25, LEVEL_IMG, cvs.width / 2 - 30, 5);
+
     }
 
     // game over
@@ -322,12 +378,12 @@ function hide() {
             for (var i = 0; i < 6; i++)
                 color += letters[(Math.floor(Math.random() * 16))];
             brick.fillColor = color
-        
+
             for (var i = 0; i < 6; i++)
                 color += letters[(Math.floor(Math.random() * 16))];
             createBricks();
             ball.speed += 0.5;
-        
+
             resetBall();
             LEVEL++;
             console.log(bl[LEVEL])
@@ -338,15 +394,16 @@ function hide() {
     function update() {
         movePaddle();
 
-        moveBall();
+        for (let i = 0; i < LEVEL; ++i) {
+            ball = ballArr[i];
+            moveBall();
 
-        ballWallCollision();
+            ballWallCollision();
 
-        ballPaddleCollision();
+            ballPaddleCollision();
 
-        ballBrickCollision();
-
-        gameOver();
+            ballBrickCollision();
+        }
 
         levelUp();
     }
@@ -418,12 +475,13 @@ function hide() {
         // youlose.style.display = "block";
         notify("Game Over .Restarting the game")
         setTimeout(() => {
-            
+
             location.reload()
-        },3000)
+        }, 3000)
         // console.log("after game over ran")
-        
+
     }
+
     function notify(a) {
         Toastify({
             text: a,
@@ -436,10 +494,11 @@ function hide() {
             backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
             stopOnFocus: true, // Prevents dismissing of toast on hover
             onClick: function () {
-                
+
             } // Callback after click
         }).showToast();
     }
+
     function scoreup(a) {
         Toastify({
             text: `+10`,
@@ -452,8 +511,26 @@ function hide() {
             backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
             stopOnFocus: true, // Prevents dismissing of toast on hover
             onClick: function () {
-                
+
             } // Callback after click
         }).showToast();
+    }
+
+
+    function preShake(strength) {
+        ctx.save();
+        var dx = Math.random() * strength;
+        var dy = Math.random() * strength;
+        ctx.translate(dx, dy);
+    }
+
+    function postShake() {
+        ctx.restore();
+    }
+
+    function shakeScreen(strength) {
+        preShake(strength);
+        draw();
+        postShake();
     }
 }
