@@ -1,0 +1,39 @@
+*{
+    margin:0;
+}
+.container{
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/form-bk.jpg");
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main{
+    background-color: blueviolet;
+    width: 500px;
+    padding: 20px;
+    color: #fff;
+    border-radius: 10px;
+}
+.text-field{
+    height: 30px;
+    width: 300px;
+    border-radius: 10px;
+    background-color:rgb(0,0,0,0.3);
+    color:white;
+
+}
+textarea:focus,
+input:focus {
+    outline: none;
+    background-color:rgb(0, 0, 0, 0.3);
+    color: #fff;
+    /* background: transparent; */
+}
+
+/* input{
+    background: transparent;
+    outline: none;
+    border: none;
+
+} */
