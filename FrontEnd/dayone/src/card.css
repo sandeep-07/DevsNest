@@ -9,10 +9,10 @@
 
 .card__image {
     height: 80%;
-    
 }
 
 .card__image img {
     height: 100%;
+    width: 280px;
     border-radius: 10px;
 }
