@@ -3,7 +3,7 @@ import "../css/card.css"
 function Card({iml,name,description}) {
 
     return (
-        <div className="container">
+        
             <div className="card">
                 <div className="card__image">
                     <img src={ iml} />
@@ -16,7 +16,7 @@ function Card({iml,name,description}) {
                 </div>
             </div>
             
-        </div>
+        
             
     )
     
