@@ -1,4 +1,6 @@
-import React,{useState} from "react"
+import React, { useState } from "react"
+import Button from "./component/Button"
+import Buttons from "./component/Buttons"
 function App() {
   const [a, seta] = useState(0)
   const [b, setb] = useState(0)
@@ -6,19 +8,7 @@ function App() {
   const [d, setd] = useState(0)
   return (
     <div >
-      <button onClick={()=>{seta(a+1)}}>
-        {a}
-      </button>
-      <button onClick={()=>{setb(b+1)}}>
-        {b}
-      </button>
-      <button onClick={()=>{setc(c+1)}}>
-        {c}
-      </button>
-      <button onClick={()=>{setd(d+1)}}>
-        {d}
-      </button>
-        
+      <Buttons/>
 
     </div>
   );
