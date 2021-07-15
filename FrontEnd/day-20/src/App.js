@@ -4,8 +4,11 @@ import "./App.css"
 function App() {
   
   return (
-    <div className="app">
+    <div className="app_outer">
+      <div className="app_inner">
+
       <Todos/>
+      </div>
     </div>
   );
 }

@@ -9,7 +9,7 @@ function Chess() {
         <div className="outer">
 
             <div className="inner">
-                <div className="chess">
+            <div className="chess">
             {
                 a.map(i => {
 
