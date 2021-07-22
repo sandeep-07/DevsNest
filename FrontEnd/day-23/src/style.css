@@ -1,0 +1,86 @@
+*
+{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    min-width: 100vw;
+    min-height: 100vh;
+    background-image: linear-gradient(to right, rgba(6, 54, 126, 0.959), rgba(180, 199, 218, 0.712));
+}
+.container
+{
+    flex-direction: column;
+}
+.temp h1{
+    margin: auto;
+    margin-bottom: 5vh;
+    border-radius: 10px;
+    width: 25vw;
+    height: 10vh;
+    background-color: rgb(67, 126, 235);
+    text-align: center;
+    font-weight: bold;
+    color: rgba(6, 35, 90, 0.993);
+    border: 5px solid rgb(3, 50, 146);
+    font-family: sans-serif;
+    padding: 12px;
+}
+.template
+{
+    width: 33.33%;
+    display: inline-block;
+    border: 10px solid transparent;
+}
+.template .img{
+    height: 500px;
+    width:100%;
+    border: 1px solid black;
+    background-size: cover;
+    background-position: center;
+}
+h2
+{
+    margin: auto;
+    margin-top: 15px;
+    text-align: center;
+    font-family: sans-serif;
+    background-color: rgb(114, 139, 187);
+    border: 5px solid rgb(15, 41, 94);
+    border-radius: 10px;
+}
+.templates
+{
+    margin: 20px;
+}
+.meme{
+    text-align: center;
+}
+.meme img{
+    height: 500px;
+    width: auto;
+    border: 5px solid black;
+    margin: auto;
+}
+
+.meme input
+{
+    margin: 10px;
+    padding:5px;
+}
+.meme button{
+    margin: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(12, 44, 65);
+    border: 2px solid rgb(2, 16, 44);
+}
+.name
+{
+    font-family: sans-serif;
+    color: aliceblue;
+    font-weight: 100;
+    font-size: 25px;
+}
