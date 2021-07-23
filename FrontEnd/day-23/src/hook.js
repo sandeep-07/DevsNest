@@ -1,11 +1,8 @@
 import {useState,useEffect} from 'react'
-const useFetch = (url = '', options = null) => {
+export const useFetch = (url = '', options = null) => {
     const [data, setData] = useState(null)
-    
     const [error, setError] = useState(null)
-    
     const [loading,setLoading]=useState(false)
-
     useEffect(() => {
         setLoading(true)
         fetch(url,options)
@@ -14,14 +11,13 @@ const useFetch = (url = '', options = null) => {
             setData(data)
             setError(null)
         })
-            .catch(error => {
+        .catch(error => {
                 setError(error)
                 setData(null)
-            })
+        })
         .finally(()=>setLoading(false))
     }, [url, options])
     return {loading,error,data}
 }
 
-export default useFetch
-
+// export default useFetch

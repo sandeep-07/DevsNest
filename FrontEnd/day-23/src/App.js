@@ -1,10 +1,22 @@
-import {useFetch} from "./hook"
-const URL="https://hn.algolia.com/api/v1/search?query=react"
+import React,{useState} from "react"
+import { useFetch } from "./hook"
+
+const URL = "https://api.imgflip.com/get_memes"
 function App() {
-  const {loading,error,data}=useFetch(URL)
+  const { loading, error, data } = useFetch(URL)
+  const [res, setres] = useState(null)
+  console.log(data)
   return (
     <div className="App">
+      {
+        data
+          ?
+          
+          <div>We got it</div>
+          :
+          <div>we didnt get</div>
       
+      }
     </div>
   );
 }
