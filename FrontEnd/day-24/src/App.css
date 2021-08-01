@@ -1,0 +1,16 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+.nav{
+  display: flex;
+  font-size: 40px;
+  justify-content: space-evenly;
+  background-color: black !important;
+  width: 100%;
+}
+a:-webkit-any-link{
+  color: white !important;
+  text-decoration: none !important;
+
+}
