@@ -1,0 +1,2 @@
+export const USERNAME_TYPE="USERNAME_TYPE"
+export const PASSWORD_TYPE="PASSWORD_TYPE"
